@@ -1,12 +1,14 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component, signal} from '@angular/core';
+import {DashboardPlolyjs} from './dashboard-plolyjs/dashboard-plolyjs';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.html',
+  imports: [
+    DashboardPlolyjs
+  ],
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('angular-plotyjs');
+  protected readonly title = signal('Angular 21 - Plotyjs');
 }
