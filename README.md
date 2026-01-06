@@ -1,59 +1,116 @@
-# AngularPlotyjs
+# 📊 Angular 21 + Plotly.js Charts Demo
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
+A clean and lightweight demo showcasing **Plotly.js** charts in **Angular 21 (standalone)** using modern APIs like `signal`, `effect`, and `viewChild`.
 
-## Development server
+Includes:
+- 🍩 **Donut (Pie with hole)**
+- 📈 **Line chart (Time-series)**
+- 🧭 **Indicator (Gauge-like)**
 
-To start a local development server, run:
+👉 **Live Demo:** <a href="https://omidkh68.github.io/angular-21-plotyjs/" target="_blank">omidkh68.github.io/angular-21-plotyjs</a>
 
+---
+
+## ✨ Features
+
+- ✅ Built with **Angular v21 (Standalone)**
+- 📦 Uses **plotly.js-dist-min** (no extra wrapper needed)
+- ⚡ Updates charts using **Plotly.react** (fast + no full re-render)
+- 📐 Responsive charts with **ResizeObserver**
+- 🧠 State management using **Signals**
+- 🛡️ SSR-safe with `isPlatformBrowser` guard
+- 🎛️ Mock data generator + **Refresh** button
+
+---
+
+## 🚀 Getting Started
+
+### Clone the repo
+```bash
+git clone https://github.com/omidkh68/angular-21-plotyjs.git
+cd angular-21-plotyjs
+```
+
+### Install dependencies
+```bash
+npm install
+```
+
+### Run locally
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Then visit: [http://localhost:4200](http://localhost:4200)
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 📦 Install Plotly (if you want to add it to your own project)
 
 ```bash
-ng generate --help
+npm i plotly.js-dist-min
 ```
 
-## Building
+---
 
-To build the project run:
+## 🧩 What’s Inside
 
-```bash
-ng build
+- `Donut Chart` (Pie with `hole`)
+- `Line Chart` (scatter + lines + markers)
+- `Indicator Gauge` (indicator + number + delta + threshold)
+
+The charts are rendered into div containers and updated via:
+
+- `Plotly.react(el, data, layout, config)`
+- `Plotly.Plots.resize(el)` for responsiveness
+- `Plotly.purge(el)` on destroy (cleanup)
+
+---
+
+## 🛠 Technologies Used
+
+| Tool       | Version |
+|-----------|---------|
+| Angular    | ^21     |
+| Plotly.js  | latest  |
+| TypeScript | ^5      |
+
+---
+
+## 🧪 Example Usage (Key Parts)
+
+### Render using `Plotly.react`
+```ts
+Plotly.react(el, data, layout, {
+  responsive: true,
+  displayModeBar: false,
+});
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
+### Resize on container changes
+```ts
+const ro = new ResizeObserver(() => Plotly.Plots.resize(el));
+ro.observe(el);
 ```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## 📷 Screenshots
 
-```bash
-ng e2e
-```
+> Add your screenshots inside `public/screenshots/` and update paths below.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### Charts
+![charts](public/screenshots/plotyjs.png)
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 📄 License
+
+MIT License © 2026 Omidkh68
+
+---
+
+## 🙌 Contributions
+
+Pull requests are welcome.  
+If you plan a bigger change, please open an issue first to discuss it.

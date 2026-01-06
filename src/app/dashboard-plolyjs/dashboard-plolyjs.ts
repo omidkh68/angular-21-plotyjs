@@ -19,7 +19,6 @@ type GaugeMock = { value: number; target: number };
 
 @Component({
   selector: 'app-dashboard-plolyjs',
-  imports: [],
   templateUrl: './dashboard-plolyjs.html',
   styleUrl: './dashboard-plolyjs.css',
 })
@@ -27,7 +26,6 @@ export class DashboardPlolyjs implements AfterViewInit {
   readonly #platformId = inject(PLATFORM_ID);
   readonly #destroyRef = inject(DestroyRef);
 
-  // ViewChild signals (Angular 17+)
   donutEl = viewChild<ElementRef<HTMLDivElement>>('donut');
   lineEl = viewChild<ElementRef<HTMLDivElement>>('line');
   gaugeEl = viewChild<ElementRef<HTMLDivElement>>('gauge');
